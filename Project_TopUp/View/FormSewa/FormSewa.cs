@@ -1,4 +1,4 @@
-using Npgsql;
+﻿using Npgsql;
 using Project_SewaKamera;
 using Project_SewaKamera.App.Core;
 using Project_SewaKamera.App.Model;
@@ -8,10 +8,34 @@ namespace Project_TopUp
 {
     public partial class FormSewa : Form
     {
+        private int sewaId;
         public FormSewa()
         {
             InitializeComponent();
 
+        }
+        public FormSewa(int id) // constructor with id
+        {
+            InitializeComponent();
+            this.sewaId = id;
+            LoadSewaData(id); // Method ini bisa kamu buat untuk memuat data berdasarkan id
+        }
+
+        private void LoadSewaData(int id)
+        {
+            var data = SewaContext.GetById(id);
+    if (data != null)
+    {
+        this.sewaId = data.Id;  // ✅ ini penting
+        txtNama.Text = data.Nama;
+        txtbarang.Text = data.Barang;
+        cbxDurasi.SelectedItem = data.Durasi.ToString();
+        dtpTanggalSewa.Value = data.TanggalSewa;
+    }
+    else
+    {
+        MessageBox.Show("Data tidak ditemukan.");
+    }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -74,6 +98,7 @@ namespace Project_TopUp
 
             var dataSewa = new M_Sewa
             {
+                Id = sewaId, // ✅ Penting: sertakan ID jika edit
                 Nama = txtNama.Text.Trim(),
                 Barang = txtbarang.Text.Trim(),
                 Durasi = cbxDurasi.SelectedItem.ToString(),
@@ -82,8 +107,16 @@ namespace Project_TopUp
 
             try
             {
-                SewaContext.AddDataSewa(dataSewa);
-                MessageBox.Show("Data berhasil disimpan!");
+                if (sewaId > 0)
+                {
+                    SewaContext.UpdateDataSewa(dataSewa); // mode edit
+                    MessageBox.Show("Data berhasil diupdate!");
+                }
+                else
+                {
+                    SewaContext.AddDataSewa(dataSewa); // mode tambah
+                    MessageBox.Show("Data berhasil disimpan!");
+                }
 
                 FormDaftarSewa formDaftar = new FormDaftarSewa();
                 formDaftar.Show();
@@ -94,6 +127,7 @@ namespace Project_TopUp
                 MessageBox.Show("Terjadi kesalahan saat menyimpan: " + ex.Message);
             }
         }
+
 
 
         private void btnlihat_Click(object sender, EventArgs e)

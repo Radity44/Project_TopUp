@@ -11,7 +11,7 @@ namespace Project_SewaKamera.App.Core
         private static readonly string dbHost = "localhost";
         private static readonly string dbDatabase = "SewaKamera";
         private static readonly string dbUsername = "postgres";
-        private static readonly string dbPassword = "n0uN545.";
+        private static readonly string dbPassword = "radity@";
         private static readonly string dbPort = "5432";
 
 

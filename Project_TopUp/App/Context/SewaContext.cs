@@ -46,7 +46,69 @@ namespace Project_SewaKamera.App.Context
                 new NpgsqlParameter("@tanggalsewa", SewaBaru.TanggalSewa)
             };
 
+
+
+
             commandExecutor(query, parameters);
         }
+
+        public static void DeleteDataSewa(int id)
+        {
+            string query = $"DELETE FROM {table} WHERE id = @id";
+            NpgsqlParameter[] parameters =
+            {
+                new NpgsqlParameter("@id", id)
+            };
+            commandExecutor(query, parameters);
+        }
+
+        public static void UpdateDataSewa(M_Sewa data)
+        {
+            string query = $@"
+                UPDATE {table}
+                SET nama = @nama, barang = @barang, durasi = @durasi, tanggal_sewa = @tanggalsewa
+                WHERE id = @id";
+
+            NpgsqlParameter[] parameters =
+            {
+                new NpgsqlParameter("@id", data.Id),
+                new NpgsqlParameter("@nama", data.Nama),
+                new NpgsqlParameter("@barang", data.Barang),
+                new NpgsqlParameter("@durasi", data.Durasi),
+                new NpgsqlParameter("@tanggalsewa", data.TanggalSewa)
+            };
+
+            commandExecutor(query, parameters);
+        }
+
+        public static M_Sewa GetById(int id)
+        {
+            using (var conn = DBservice.GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT id, nama, barang, durasi, tanggal_sewa FROM sewa WHERE id = @id";
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new M_Sewa
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("id")),
+                                Nama = reader.GetString(reader.GetOrdinal("nama")),
+                                Barang = reader.GetString(reader.GetOrdinal("barang")),
+                                Durasi = reader.GetString(reader.GetOrdinal("durasi")),
+                                TanggalSewa = reader.GetDateTime(reader.GetOrdinal("tanggal_sewa"))
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+
     }
 }

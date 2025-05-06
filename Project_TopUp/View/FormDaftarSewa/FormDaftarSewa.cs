@@ -14,8 +14,10 @@ using Project_SewaKamera.App.Context;
 
 namespace Project_SewaKamera
 {
+
     public partial class FormDaftarSewa : Form
     {
+        private int selectedId = -1;
         public FormDaftarSewa()
         {
             InitializeComponent();
@@ -25,6 +27,10 @@ namespace Project_SewaKamera
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+            {
+                DataGridViewRow row = daftarSewa.Rows[e.RowIndex];
+                selectedId = Convert.ToInt32(row.Cells["Id"].Value);
+            }
         }
 
         private void btnkembali_Click(object sender, EventArgs e)
@@ -37,6 +43,7 @@ namespace Project_SewaKamera
         private void FormDaftarSewa_Load(object sender, EventArgs e)
         {
             LoadDaftarSewa();
+            daftarSewa.CellClick += daftarSewa_CellClick;
         }
 
         private void LoadDaftarSewa()
@@ -101,11 +108,59 @@ namespace Project_SewaKamera
             //}
         }
 
+        private void daftarSewa_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = daftarSewa.Rows[e.RowIndex];
+                selectedId = Convert.ToInt32(row.Cells["Id"].Value);
+            }
+        }
+
 
 
         private void FormDaftarSewa_Load_1(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void btnedit_Click(object sender, EventArgs e)
+        {
+            if (selectedId == -1)
+            {
+                MessageBox.Show("Silakan pilih data yang akan diubah.");
+                return;
+            }
+
+            MessageBox.Show("Edit ID: " + selectedId);
+
+            FormSewa formEdit = new FormSewa(selectedId); // kirim ID ke FormSewa
+            formEdit.Show();
+            this.Hide();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {   
+            if (selectedId == -1)
+            {
+                MessageBox.Show("Silakan pilih data yang akan dihapus.");
+                return;
+            }
+
+            var confirm = MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                try
+                {
+                    SewaContext.DeleteDataSewa(selectedId);
+                    LoadDaftarSewa(); // Refresh data
+                    MessageBox.Show("Data berhasil dihapus.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal menghapus data: " + ex.Message);
+                }
+            }
         }
     }
 }

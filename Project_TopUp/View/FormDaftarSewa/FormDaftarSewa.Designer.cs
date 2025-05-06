@@ -30,6 +30,8 @@
         {
             daftarSewa = new DataGridView();
             btnkembali = new Button();
+            btnedit = new Button();
+            btnDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)daftarSewa).BeginInit();
             SuspendLayout();
             // 
@@ -39,40 +41,59 @@
             daftarSewa.AllowUserToDeleteRows = false;
             daftarSewa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             daftarSewa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            daftarSewa.Location = new Point(189, 89);
-            daftarSewa.Margin = new Padding(4);
+            daftarSewa.Location = new Point(151, 71);
             daftarSewa.MultiSelect = false;
             daftarSewa.Name = "daftarSewa";
             daftarSewa.ReadOnly = true;
             daftarSewa.RowHeadersWidth = 51;
             daftarSewa.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            daftarSewa.Size = new Size(691, 315);
+            daftarSewa.Size = new Size(553, 252);
             daftarSewa.TabIndex = 0;
             daftarSewa.CellContentClick += dataGridView1_CellContentClick;
             // 
             // btnkembali
             // 
-            btnkembali.Location = new Point(189, 438);
-            btnkembali.Margin = new Padding(4);
+            btnkembali.Location = new Point(151, 350);
             btnkembali.Name = "btnkembali";
-            btnkembali.Size = new Size(118, 36);
+            btnkembali.Size = new Size(94, 29);
             btnkembali.TabIndex = 1;
             btnkembali.Text = "Kembali";
             btnkembali.UseVisualStyleBackColor = true;
             btnkembali.Click += btnkembali_Click;
             // 
+            // btnedit
+            // 
+            btnedit.Location = new Point(367, 350);
+            btnedit.Name = "btnedit";
+            btnedit.Size = new Size(94, 29);
+            btnedit.TabIndex = 2;
+            btnedit.Text = "Edit";
+            btnedit.UseVisualStyleBackColor = true;
+            btnedit.Click += btnedit_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(567, 350);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "Hapus";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // FormDaftarSewa
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             BackgroundImage = Properties.Resources.Tanpa_judul__1080_x_1080_piksel___Wallpaper_Desktop___1_;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1000, 562);
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(btnedit);
             Controls.Add(btnkembali);
             Controls.Add(daftarSewa);
             DoubleBuffered = true;
-            Margin = new Padding(4);
             Name = "FormDaftarSewa";
             Text = "Form2";
             Load += FormDaftarSewa_Load_1;
@@ -84,5 +105,7 @@
 
         private DataGridView daftarSewa;
         private Button btnkembali;
+        private Button btnedit;
+        private Button btnDelete;
     }
 }
