@@ -14,6 +14,7 @@ namespace Project_SewaKamera.App.Core
         private static readonly string dbPassword = "n0uN545.";
         private static readonly string dbPort = "5432";
 
+
         // Koneksi dan perintah Npgsql
         private static NpgsqlConnection connection;
         private static NpgsqlCommand command;
