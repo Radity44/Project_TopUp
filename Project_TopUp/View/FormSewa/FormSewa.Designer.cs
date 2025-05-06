@@ -44,33 +44,37 @@
             // 
             // txtNama
             // 
-            txtNama.Location = new Point(260, 102);
+            txtNama.Location = new Point(325, 128);
+            txtNama.Margin = new Padding(4);
             txtNama.Name = "txtNama";
-            txtNama.Size = new Size(281, 27);
+            txtNama.Size = new Size(350, 31);
             txtNama.TabIndex = 1;
             txtNama.TextChanged += txtNama_TextChanged;
             // 
             // txtbarang
             // 
-            txtbarang.Location = new Point(260, 160);
+            txtbarang.Location = new Point(325, 200);
+            txtbarang.Margin = new Padding(4);
             txtbarang.Name = "txtbarang";
-            txtbarang.Size = new Size(281, 27);
+            txtbarang.Size = new Size(350, 31);
             txtbarang.TabIndex = 2;
             txtbarang.TextChanged += txtbarang_TextChanged;
             // 
             // dtpTanggalSewa
             // 
-            dtpTanggalSewa.Location = new Point(259, 288);
+            dtpTanggalSewa.Location = new Point(324, 360);
+            dtpTanggalSewa.Margin = new Padding(4);
             dtpTanggalSewa.Name = "dtpTanggalSewa";
-            dtpTanggalSewa.Size = new Size(282, 27);
+            dtpTanggalSewa.Size = new Size(352, 31);
             dtpTanggalSewa.TabIndex = 4;
             dtpTanggalSewa.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // btnlihat
             // 
-            btnlihat.Location = new Point(447, 354);
+            btnlihat.Location = new Point(559, 442);
+            btnlihat.Margin = new Padding(4);
             btnlihat.Name = "btnlihat";
-            btnlihat.Size = new Size(94, 29);
+            btnlihat.Size = new Size(118, 36);
             btnlihat.TabIndex = 5;
             btnlihat.Text = "Lihat List";
             btnlihat.UseVisualStyleBackColor = true;
@@ -78,9 +82,10 @@
             // 
             // btnsimpan
             // 
-            btnsimpan.Location = new Point(259, 344);
+            btnsimpan.Location = new Point(324, 442);
+            btnsimpan.Margin = new Padding(4);
             btnsimpan.Name = "btnsimpan";
-            btnsimpan.Size = new Size(94, 29);
+            btnsimpan.Size = new Size(118, 36);
             btnsimpan.TabIndex = 6;
             btnsimpan.Text = "Simpan";
             btnsimpan.UseVisualStyleBackColor = true;
@@ -91,9 +96,10 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(349, 9);
+            label1.Location = new Point(436, 11);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(192, 41);
+            label1.Size = new Size(230, 50);
             label1.TabIndex = 7;
             label1.Text = "LensaPinjam";
             label1.Click += label1_Click;
@@ -102,9 +108,10 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Location = new Point(259, 79);
+            label2.Location = new Point(324, 99);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(110, 20);
+            label2.Size = new Size(132, 25);
             label2.TabIndex = 8;
             label2.Text = "Nama Penyewa";
             // 
@@ -112,9 +119,10 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Location = new Point(260, 137);
+            label3.Location = new Point(325, 171);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(155, 20);
+            label3.Size = new Size(186, 25);
             label3.TabIndex = 9;
             label3.Text = "Jenis Kamera / Iphone";
             // 
@@ -122,9 +130,10 @@
             // 
             txtdurasi.AutoSize = true;
             txtdurasi.BackColor = Color.Transparent;
-            txtdurasi.Location = new Point(260, 201);
+            txtdurasi.Location = new Point(325, 251);
+            txtdurasi.Margin = new Padding(4, 0, 4, 0);
             txtdurasi.Name = "txtdurasi";
-            txtdurasi.Size = new Size(90, 20);
+            txtdurasi.Size = new Size(108, 25);
             txtdurasi.TabIndex = 10;
             txtdurasi.Text = "Durasi Sewa";
             // 
@@ -132,9 +141,10 @@
             // 
             cbxDurasi.FormattingEnabled = true;
             cbxDurasi.Items.AddRange(new object[] { "24 Jam", "48 Jam", "72 Jam" });
-            cbxDurasi.Location = new Point(260, 224);
+            cbxDurasi.Location = new Point(325, 280);
+            cbxDurasi.Margin = new Padding(4);
             cbxDurasi.Name = "cbxDurasi";
-            cbxDurasi.Size = new Size(281, 28);
+            cbxDurasi.Size = new Size(350, 33);
             cbxDurasi.TabIndex = 11;
             cbxDurasi.SelectedIndexChanged += cbxDurasi_SelectedIndexChanged;
             // 
@@ -142,19 +152,20 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
-            label4.Location = new Point(259, 265);
+            label4.Location = new Point(324, 331);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(100, 20);
+            label4.Size = new Size(119, 25);
             label4.TabIndex = 12;
             label4.Text = "Tanggal Sewa";
             // 
             // FormSewa
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1000, 562);
             Controls.Add(label4);
             Controls.Add(cbxDurasi);
             Controls.Add(txtdurasi);
@@ -167,8 +178,9 @@
             Controls.Add(txtbarang);
             Controls.Add(txtNama);
             DoubleBuffered = true;
+            Margin = new Padding(4);
             Name = "FormSewa";
-            Text = "Form1";
+            Text = "FormSewa";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
