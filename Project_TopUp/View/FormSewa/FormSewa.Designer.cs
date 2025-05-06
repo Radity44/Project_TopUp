@@ -71,7 +71,7 @@
             // 
             // btnlihat
             // 
-            btnlihat.Location = new Point(559, 442);
+            btnlihat.Location = new Point(558, 429);
             btnlihat.Margin = new Padding(4);
             btnlihat.Name = "btnlihat";
             btnlihat.Size = new Size(118, 36);
@@ -82,7 +82,7 @@
             // 
             // btnsimpan
             // 
-            btnsimpan.Location = new Point(324, 442);
+            btnsimpan.Location = new Point(324, 429);
             btnsimpan.Margin = new Padding(4);
             btnsimpan.Name = "btnsimpan";
             btnsimpan.Size = new Size(118, 36);

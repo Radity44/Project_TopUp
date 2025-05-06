@@ -52,7 +52,7 @@
             // 
             // btnkembali
             // 
-            btnkembali.Location = new Point(189, 431);
+            btnkembali.Location = new Point(189, 438);
             btnkembali.Margin = new Padding(4);
             btnkembali.Name = "btnkembali";
             btnkembali.Size = new Size(118, 36);
